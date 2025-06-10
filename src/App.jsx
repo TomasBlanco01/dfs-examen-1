@@ -6,7 +6,9 @@ import Display from './components/Display'
 function App() {
   const [partido, setPartido] = useState({
     golesLocal: 0,
-    golesVisitante: 0
+    golesVisitante: 0,
+    amarillaLocal: 0,
+    amarillaVisitante : 0
   })
 
   const onGol = (equipo) => {
@@ -15,13 +17,20 @@ function App() {
     } else if (equipo == 'visitante'){
       setPartido({ ...partido, golesVisitante: partido.golesVisitante + 1 })
     }
-    
+  }
+
+  const onAmarilla = (equipo) => {
+    if (equipo == 'local'){
+      setPartido({ ...partido, amarillaLocal: partido.amarillaLocal + 1 })
+    } else if (equipo == 'visitante'){
+      setPartido({ ...partido, amarillaVisitante: partido.amarillaVisitante + 1 })
+    }
   }
 
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} />
+      <Controles onGol={onGol} onAmarilla={onAmarilla}/>
       <Display partido={partido} />
     </div>
   )
