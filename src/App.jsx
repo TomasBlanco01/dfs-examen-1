@@ -37,10 +37,14 @@ function App() {
     }
   }
 
+  const onReset = () => {
+    setPartido({ ...partido, golesLocal: 0, golesVisitante: 0, amarillaLocal: 0, amarillaVisitante: 0, rojaLocal: 0, rojaVisitante: 0 })
+  }
+
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} onAmarilla={onAmarilla} onRoja={onRoja}/>
+      <Controles onGol={onGol} onAmarilla={onAmarilla} onRoja={onRoja} onReset={onReset}/>
       <Display partido={partido} />
     </div>
   )

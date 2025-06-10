@@ -1,4 +1,4 @@
-const Controles = ({ onGol, onAmarilla, onRoja }) => {
+const Controles = ({ onGol, onAmarilla, onRoja, onReset}) => {
   return (
     <div className="controles">
       <div>
@@ -13,6 +13,7 @@ const Controles = ({ onGol, onAmarilla, onRoja }) => {
         <button onClick={() => { onAmarilla('visitante') }}>🟨 Amarilla</button>
         <button onClick={() => { onRoja('visitante') }}>🟥 Roja</button>        
       </div>
+      <button onClick={() => {onReset()}}>🔄 Reset The Game 🔄</button>
     </div>
   )
 }
